@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Delivery Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .status-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .status {
+            width: 300px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            color: #495057;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .status.filled {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pizza Delivery Simulation</h1>
+    <button id="btn">Place Order</button>
+    <div class="status-container">
+        <div id="div1" class="status"></div>
+        <div id="div2" class="status"></div>
+        <div id="div3" class="status"></div>
+        <div id="div4" class="status"></div>
+    </div>
+    <div class="footer">
+        <p>Powered by JavaScript Promises and Async/Await</p>
+    </div>
+    <script>
+        let btn = document.getElementById("btn");
+        let div1 = document.getElementById("div1");
+        let div2 = document.getElementById("div2");
+        let div3 = document.getElementById("div3");
+        let div4 = document.getElementById("div4");
+
+        btn.addEventListener("click", () => {
+            let first = function () {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve("Preparing pizza");
+                        div1.innerText = "Preparing pizza";
+                        div1.classList.add("filled");
+                    }, 200);
+                });
+            };
+
+            let second = function () {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve("Baking pizza");
+                        div2.innerText = "Baking pizza";
+                        div2.classList.add("filled");
+                    }, 600);
+                });
+            };
+
+            let third = function () {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve("Packing pizza");
+                        div3.innerText = "Packing pizza";
+                        div3.classList.add("filled");
+                    }, 1500);
+                });
+            };
+
+            let fourth = function () {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve("Pizza Delivered");
+                        div4.innerText = "Pizza Delivered";
+                        div4.classList.add("filled");
+                    }, 2000);
+                });
+            };
+
+            async function funu() {
+                let a = await first();
+                console.log(a);
+                let b = await second();
+                console.log(b);
+                let c = await third();
+                console.log(c);
+                let d = await fourth();
+                console.log(d);
+            }
+            funu();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- trail -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn">place order</button>
+    <div id="div1"></div>
+    <br>
+    <div id="div2"></div>
+    <br>
+    <div id="div3"></div>
+    <br>
+    <div id="div4"></div>
+    <script>
+
+    // Simulate a pizza delivery system with steps:
+    // 1)Place order → Prepare pizza → Bake pizza → Pack pizza → Deliver pizza.
+
+let btn = document.getElementById("btn")
+let div1 = document.getElementById("div1")
+let div2 = document.getElementById("div2")
+let div3 = document.getElementById("div3")
+
+let div4 = document.getElementById("div4")
+
+btn.addEventListener("click",()=>{
+
+
+    let first = function(){ return new Promise((ress)=>{
+     setTimeout(() => {
+        
+        ress("Preparing pizza")
+        div1.innerText= "Preparing pizza"
+     }, 200);
+    })
+    }
+
+    
+    let second = function(){ return new Promise((ress)=>{
+     setTimeout(() => {
+        ress("Baking pizza")
+        div2.innerText = "Baking pizza"
+     }, 600);
+    })
+    }
+
+    
+    let third = function(){ return new Promise((ress)=>{
+     setTimeout(() => {
+        ress("Packing pizza")
+         div3.innerText = "Packing pizza"
+     }, 1500);
+    })
+    }
+
+
+        
+    let fourth = function(){ return new Promise((ress)=>{
+     setTimeout(() => {
+
+        ress("pizza Delivered")
+        div4.innerText = "pizza Delivered"
+     }, 2000);
+    })
+    }
+
+
+
+    
+    async function funu() {
+        let a = await first()
+        console.log(a)
+       let b = await second()
+       console.log(b)
+       let c = await third()
+       console.log(c)
+       let d = await fourth()
+       console.log(d)
+       // console.log(data)
+    }
+    funu()
+
+
+
+})
+
+
+
+
+    </script>
+</body>
+</html> -->
+
+
